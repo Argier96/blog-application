@@ -5,6 +5,12 @@ const addPost = async(req,res) => {
     res.json(result);
 }
 
+const getAllPost = async(req,res) => {
+    const result = await userModel.getAllPost();
+    res.json(result);
+}
+
 module.exports = {
     addPost,
+    getAllPost
 }
