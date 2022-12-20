@@ -26,7 +26,12 @@ const addPost = async(data) =>{
 const getAllPost = async() => {
     return await mongoose.model('Post',postSchema,'postInfos').find();
 }
+
+const getPostbyAuthor = async(req) => {
+    return await mongoose.model('Post',postSchema,'postInfos').find({author: req});
+}
 module.exports ={
     addPost,
-    getAllPost
+    getAllPost,
+    getPostbyAuthor
 }
