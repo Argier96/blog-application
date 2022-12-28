@@ -20,7 +20,6 @@ const addPost = async(data) =>{
     }catch(e){
         console.log(e);
     }
-    // console.log(data);
 } 
 
 const getAllPost = async() => {
@@ -30,8 +29,16 @@ const getAllPost = async() => {
 const getPostbyAuthor = async(req) => {
     return await mongoose.model('Post',postSchema,'postInfos').find({author: req});
 }
+
+const deletePost = async(req) =>{
+    return await mongoose.model('Post',postSchema,'postInfos').find({_id: req}).remove();
+}
 module.exports ={
     addPost,
     getAllPost,
-    getPostbyAuthor
+    getPostbyAuthor,
+    deletePost
 }
+
+
+

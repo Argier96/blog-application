@@ -14,9 +14,15 @@ const getPostbyAuthor = async(req,res) => {
     const result = await userModel.getPostbyAuthor(author);
     res.json(result);
 }
+const deletePost = async(req,res) =>{
+    const _id = req?.params._id;
+    const result = await userModel.deletePost(_id);
+    res.json(result);
+}
 
 module.exports = {
     addPost,
     getAllPost,
-    getPostbyAuthor
+    getPostbyAuthor,
+    deletePost
 }
