@@ -1,8 +1,11 @@
 const express = require('express');
 const route = express();
-const userController = require('../controller/postController')
+const multer = require("multer");
+const userController = require('../controller/postController');
+const upload = multer({dest: 'uploads/'});
 
-route.post("/addPost",userController.addPost)
+
+route.post("/addPost",upload.single(''),userController.addPost)
      .get('/getPost', userController.getAllPost)
      .get('/getPostby/:author',userController.getPostbyAuthor)
      .delete('/deletePost/:_id',userController.deletePost)

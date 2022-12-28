@@ -1,7 +1,10 @@
 const express = require('express');
 const route = express();
-const commentController = require("../controller/commentController")
+const multer = require("multer");
+const commentController = require("../controller/commentController");
+const upload = multer({dest: 'uploads/'});
 
-route.post('/addComment',commentController.addComment)
+
+route.post('/addComment',upload.single(''),commentController.addComment)
 
 module.exports = route;
