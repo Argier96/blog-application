@@ -1,8 +1,8 @@
 const userModel = require("../model/postModel");
 
 const addPost = async(req,res) => {
-    const result = await userModel.addPost(req.body);
-    res.json(result);
+    await userModel.addPost(req.body);
+    res.status(204).send();
 }
 
 const getAllPost = async(req,res) => {
@@ -26,3 +26,4 @@ module.exports = {
     getPostbyAuthor,
     deletePost
 }
+
